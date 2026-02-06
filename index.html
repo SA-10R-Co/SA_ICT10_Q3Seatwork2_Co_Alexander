@@ -1,0 +1,206 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    
+    <title>Intramurals Eligibility</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+    :root {
+        --yellow: #ffd400;
+        --dark: #0b0b0b;
+        --glass: rgba(255,255,255,0.1);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at top, #1a1a1a, #000 70%);
+        font-family: 'Poppins', system-ui;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .container {
+        width: 420px;
+        padding: 35px;
+        border-radius: 24px;
+        background: linear-gradient(
+            180deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.02)
+        );
+        backdrop-filter: blur(18px);
+        box-shadow:
+            0 30px 80px rgba(0,0,0,0.7),
+            inset 0 0 0 1px rgba(255,255,255,0.15);
+    }
+
+    h1 {
+        margin: 0 0 10px;
+        text-align: center;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: var(--yellow);
+    }
+
+    .subtitle {
+        text-align: center;
+        opacity: 0.8;
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .group {
+        margin-bottom: 18px;
+    }
+
+    label {
+        font-size: 13px;
+        letter-spacing: 1px;
+        opacity: 0.9;
+    }
+
+    select {
+        width: 100%;
+        margin-top: 6px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: none;
+        outline: none;
+        background: var(--glass);
+        color: white;
+        font-size: 14px;
+    }
+
+    .options {
+        margin-top: 8px;
+    }
+
+    .options input {
+        display: none;
+    }
+
+    .options span {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-right: 8px;
+        cursor: pointer;
+        background: rgba(255,255,255,0.15);
+        transition: all 0.2s ease;
+        font-size: 13px;
+    }
+
+    .options input:checked + span {
+        background: var(--yellow);
+        color: black;
+        font-weight: 700;
+        box-shadow: 0 0 15px rgba(255,212,0,0.6);
+    }
+
+    .check-btn {
+        width: 100%;
+        margin-top: 25px;
+        padding: 18px;
+        border-radius: 18px;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, #ffd400, #ffea70);
+        color: black;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+
+    #output {
+        margin-top: 22px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 16px;
+        color: white;
+    }
+
+    .team-img {
+        width: 100%;
+        margin-top: 14px;
+        border-radius: 14px;
+    }
+    </style>
+    </head>
+
+    <body>
+    <div class="container">
+
+    <h1>INTRAMURALS</h1>
+    <div class="subtitle">Eligibility Verification System</div>
+
+    <div class="group">
+    <label>GRADE LEVEL</label>
+    <select id="level">
+    <option value="7">Grade 7</option>
+    <option value="8">Grade 8</option>
+    <option value="9">Grade 9</option>
+    <option value="10">Grade 10</option>
+    </select>
+    </div>
+
+    <div class="group">
+    <label>SECTION</label>
+    <select id="section">
+    <option value="emerald">Emerald</option>
+    <option value="ruby">Ruby</option>
+    <option value="sapphire">Sapphire</option>
+    <option value="topaz">Topaz</option>
+    <option value="other">Other</option>
+    </select>
+    </div>
+
+    <div class="group">
+    <label>REGISTERED</label>
+    <div class="options">
+    <label>
+    <input type="radio" name="registration" value="registered">
+    <span>YES</span>
+    </label>
+    <label>
+    <input type="radio" name="registration" value="not">
+    <span>NO</span>
+    </label>
+    </div>
+    </div>
+
+    <div class="group">
+    <label>MEDICAL CLEARANCE</label>
+    <div class="options">
+    <label>
+    <input type="radio" name="clearance" value="cleared">
+    <span>YES</span>
+    </label>
+    <label>
+    <input type="radio" name="clearance" value="not">
+    <span>NO</span>
+    </label>
+    </div>
+    </div>
+
+    <button class="check-btn" py-click="intrams_checker">
+    CHECK ELIGIBILITY
+    </button>
+
+    <div id="output"></div>
+    <div id="image"></div>
+
+    </div>
+
+    <py-script src="main.py"></py-script>
+    </body>
+</html>
